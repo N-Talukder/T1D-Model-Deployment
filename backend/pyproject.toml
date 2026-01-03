@@ -1,0 +1,30 @@
+[tool.black]
+line-length = 88
+target-version = ["py311"]
+
+[tool.ruff]
+line-length = 88
+target-version = "py312"
+
+select = [
+    "E",  # pycodestyle
+    "F",  # pyflakes
+    "I",  # import rules
+    "B",  # bugbear
+    "UP", # pyupgrade
+    "SIM",# simplify
+    "ARG",# unused arguments,
+    "N", # pep8-naming (important for APIs)
+]
+
+ignore = [
+    "E501",  # line length (handled by Black)
+]
+
+[tool.ruff.per-file-ignores]
+"__init__.py" = ["F401"]
+
+[tool.mypy]
+strict = false
+warn_return_any = true
+warn_unused_ignores = true
