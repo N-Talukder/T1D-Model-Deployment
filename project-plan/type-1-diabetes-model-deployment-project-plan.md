@@ -1,14 +1,14 @@
-## T1D Model Deployment
+# T1D Model Deployment
 
-### **Overview:**
+## **Overview:**
 
 This project aims to develop an interactive tool that demonstrates how machine learning (ML) models can be deployed in ways that _enhance user understanding, provide contextual transparency, and build trust through interpretability and interactivity_.
 
 By integrating explainable AI (XAI) techniques and visual analytics, the tool will showcase how ML-driven insights can support clinical decision-making and public education around Type 1 Diabetes (T1D).
 
-### **Intended Use Cases**
+## **Intended Use Cases**
 
-#### 1. For Clinical Practitioners
+### 1. For Clinical Practitioners
 
 - **Goal:** Enable the design of **tailored and effective treatment strategies** for managing **T1D**, supported by interpretable ML models.
 - **Key Features:**
@@ -16,7 +16,7 @@ By integrating explainable AI (XAI) techniques and visual analytics, the tool wi
   - Integrate **interactive visualizations** to highlight **key predictors** and their **influence on outcomes**, dynamically adapting to input data.
   - Promote **trust in AI-assisted care** by clearly illustrating the reasoning behind model predictions.
 
-#### 2. For General Users
+### 2. For General Users
 
 - **Goal:** Improve public **understanding of T1D** and **accessibility of ML concepts**.
 - **Key Features:**
@@ -47,7 +47,8 @@ By integrating explainable AI (XAI) techniques and visual analytics, the tool wi
 - **Deployment:** Vercel (Frontend) and Render (Backend)
 - **Code Quality:**
   - ESLint, Prettier, and JSDoc for consistency and maintainability
-  - - Supertest, Vitest
+  - Mypy, black, ruff, pre-commit for consistency and maintainability
+  - Supertest, Vitest
 
 ## Backend
 
@@ -67,35 +68,39 @@ By integrating explainable AI (XAI) techniques and visual analytics, the tool wi
 ## Repository structure
 
 ```bash
- /root
+  /root
  │
  ├── backend/
- │   ├── app/
- │   │   ├── routers/
- │   │   ├── models/
- │   │   ├── middleware/
- │   │   ├── core/
- │   │   ├── trained-models/
- │   │   ├── validators/
- │   │   └── utils/
- │   └── static/
- │   └── tests/
- │   └── dependencies.txt
- │   └── Dockerfile
+ | ├── app/
+ | │   ├── main.py          # App
+ | │   ├── api/             # HTTP layer
+ | │   |   ├── v1/
+ | │   |   │   ├── endpoints/
+ | │   |   │   └── router.py
+ | │   |   └── deps.py
+ | │   ├── schemas/         # Input/output contracts
+ | │   ├── services/        # Business + ML orchestration
+ | │   ├── ml/              # Only ML concerns
+ | │   |   ├── loader.py
+ | │   |   ├── interfaces.py
+ | │   |   └── artifacts/
+ | │   ├── core/            # Cross-cutting infrastructure
+ | │   ├── middleware/      # Request/response interception
+ | │   └── utils/           # Helpers
+ | ├── tests/
+ | ├── static/
+ | └── Dockerfile
  |
  ├── frontend/
  │   ├── app/
- │   ├── ├── _utilities/
- │   ├── ├── ├── backend-requests/
- │   ├── ├── ├── components/
- │   ├── ├── ├── hooks/
- │   ├── ├── ├── types/
- │   ├── ├── page1/
- │   ├── ├── page2/
- │   ├── ├── page3/
- │   ├── ├── page4/
+ |   |   ├── components/
+ |   |   ├── hooks/
+ │   |   ├── lib/
+ │   |   │   └── api/
+ │   |   ├── pages/
+ │   |   ├── types/
  │   ├── public/
- │   ├── |── assets/
+ │   |   |── assets/
  │   ├── theme/
  │   ├── Dockerfile
  │
