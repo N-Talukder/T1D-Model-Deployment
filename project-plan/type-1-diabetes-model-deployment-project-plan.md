@@ -67,35 +67,39 @@ By integrating explainable AI (XAI) techniques and visual analytics, the tool wi
 ## Repository structure
 
 ```bash
- /root
+  /root
  │
  ├── backend/
- │   ├── app/
- │   │   ├── routers/
- │   │   ├── models/
- │   │   ├── middleware/
- │   │   ├── core/
- │   │   ├── trained-models/
- │   │   ├── validators/
- │   │   └── utils/
- │   └── static/
- │   └── tests/
- │   └── dependencies.txt
- │   └── Dockerfile
+ | ├── app/
+ | │   ├── main.py          # App
+ | │   ├── api/             # HTTP layer
+ | │   |   ├── v1/
+ | │   |   │   ├── endpoints/
+ | │   |   │   └── router.py
+ | │   |   └── deps.py
+ | │   ├── schemas/         # Input/output contracts
+ | │   ├── services/        # Business + ML orchestration
+ | │   ├── ml/              # Only ML concerns
+ | │   |   ├── loader.py
+ | │   |   ├── interfaces.py
+ | │   |   └── artifacts/
+ | │   ├── core/            # Cross-cutting infrastructure
+ | │   ├── middleware/      # Request/response interception
+ | │   └── utils/           # Helpers
+ | ├── tests/
+ | ├── static/
+ | └── Dockerfile
  |
  ├── frontend/
  │   ├── app/
- │   ├── ├── _utilities/
- │   ├── ├── ├── backend-requests/
- │   ├── ├── ├── components/
- │   ├── ├── ├── hooks/
- │   ├── ├── ├── types/
- │   ├── ├── page1/
- │   ├── ├── page2/
- │   ├── ├── page3/
- │   ├── ├── page4/
+ |   |   ├── components/
+ |   |   ├── hooks/
+ │   |   ├── lib/
+ │   |   │   └── api/
+ │   |   ├── pages/
+ │   |   ├── types/
  │   ├── public/
- │   ├── |── assets/
+ │   |   |── assets/
  │   ├── theme/
  │   ├── Dockerfile
  │
