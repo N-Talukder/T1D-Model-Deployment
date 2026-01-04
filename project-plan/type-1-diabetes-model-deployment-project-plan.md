@@ -47,7 +47,8 @@ By integrating explainable AI (XAI) techniques and visual analytics, the tool wi
 - **Deployment:** Vercel (Frontend) and Render (Backend)
 - **Code Quality:**
   - ESLint, Prettier, and JSDoc for consistency and maintainability
-  - - Supertest, Vitest
+  - Mypy, black, ruff, pre-commit for consistency and maintainability
+  - Supertest, Vitest
 
 ## Backend
 
